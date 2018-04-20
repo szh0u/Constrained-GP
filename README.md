@@ -2,9 +2,13 @@
 Function estimation under shape constraints using Gaussian Process model.
 # Model & Constraints:
 
-Observations on f: {x_i, y_i}, i =1,...,n.
+Observations: 
+    
+    {x_i, y_i}, i = 1,...,n.
 
-Model: y_i = f(x_i) + u_i,  u_i i.i.d. N(0, sig), sig unknown.
+Model: 
+
+     y_i = f(x_i) + u_i,  u_i i.i.d. N(0, sig), where sig is set to be unknown.
 
 Constraints: 
 
@@ -25,18 +29,24 @@ Priors:
    
 # R functions of constrained GP model used in the simulation example 
 
-     cGP: GP model with constraints (1), (2), (3) ;
+     cGP:  GP model with constraints (1), (2), (3) ;
      
      c0GP: GP model with constraints (1) ;
      
      c1GP: GP model with constraints (2), (3) ;
      
-     uGP: GP model with no constraint.
+     uGP:  GP model with no constraint.
      
 
 # Simulation example
 
-function: f(x) = 
+function: 
+         
+        f(x) = 1/(1 + 0.1176*x/2)^2. 
 
+setting: 
+
+     n = 200,  x in [0, 10], sig = 0.0002, l = 20, nu = 2.5 
+        
 
 
