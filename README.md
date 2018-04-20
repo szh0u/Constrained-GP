@@ -12,20 +12,31 @@ Constraints:
 
              (2) f'(x) < 0;
              
-             (3)f''(x) > 0.
+             (3) f''(x) > 0.
              
 Priors: 
-    f|x ~ GP(0, tau K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
 
-   p(tau) = 1/tau.
+    f|x ~ GP(0, tau*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
+
+    p(tau) = 1/tau.
    
-   p(sig^2) = 1/sig^2.
+    p(sig^2) = 1/sig^2.
+   
+   
+# R functions of constrained GP model used in the simulation example 
 
-# Simulation examples 
+     cGP: GP model with constraints (1), (2), (3) ;
+     
+     c0GP: GP model with constraints (1) ;
+     
+     c1GP: GP model with constraints (2), (3) ;
+     
+     uGP: GP model with no constraint.
+     
+
+# Simulation example
 
 function: f(x) = 
 
-# R functions of constrained GP model
 
-cGP: GP with 
 
