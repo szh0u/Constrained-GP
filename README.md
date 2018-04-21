@@ -1,7 +1,7 @@
-# Constrained GP model
+## Constrained GP model
 Function estimation under shape constraints using Gaussian Process model. 
 
-# Model & Constraints
+## Model & Constraints
 
 Model: 
 
@@ -24,7 +24,7 @@ Priors:
     p(sigma^2) = 1/sigma^2.
    
    
-# R functions used in the simulation example 
+## R functions used in the simulation example 
 
      maternCov: generate the matern covariance matrix with arbitrary smoothness parameter nu and length-scale parameter l ; 
 
@@ -37,7 +37,7 @@ Priors:
      uGP:  GP model with no constraint.
      
 
-# Output 
+## Output 
 
 
 
