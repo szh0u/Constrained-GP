@@ -39,7 +39,7 @@ Priors:
 
 # Output 
 
-Constrained-GP/example.png
+![ScreenShot](Constrained-GP/example.png)
 
 
 
