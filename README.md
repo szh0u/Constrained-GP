@@ -39,6 +39,4 @@ Priors:
 
 # Output 
 
-example.png
-
 
