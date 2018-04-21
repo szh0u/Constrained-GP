@@ -1,7 +1,7 @@
 # Constrained GP model
 Function estimation under shape constraints using Gaussian Process model. 
 
-# Model & Constraints:
+# Model & Constraints
 
 Model: 
 
@@ -37,6 +37,8 @@ Priors:
      uGP:  GP model with no constraint.
      
 
+# Output 
 
+example.png
 
 
