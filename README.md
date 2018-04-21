@@ -1,5 +1,5 @@
 ## Constrained GP model
-Function estimation under shape constraints using Gaussian Process model. 
+Function estimation under shape constraints using Gaussian Process model. Bayesian method combined with 
 
 ## Model & Constraints
 
@@ -9,7 +9,7 @@ Model:
      
      f_1(x) = f(0) + f'(0)*x + \sum_{j=0}^n f''(u_j)*h_j(x), with pre-defined knots {u_j} and basis functions {h_j}.
      
-     Let F = [f(0), f'(0), f''(u_0), ..., f''(u_n)] to be updated.
+     Denote parameters F = [f(0), f'(0), f''(u_0), ..., f''(u_n)] to be updated.
 
 Constraints: 
 
