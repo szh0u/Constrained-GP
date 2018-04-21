@@ -1,10 +1,7 @@
 # Constrained GP model
 Function estimation under shape constraints using Gaussian Process model. 
-# Model & Constraints:
 
-Observations: 
-    
-    {x_i, y_i}, i = 1,...,n.
+# Model & Constraints:
 
 Model: 
 
