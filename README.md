@@ -5,19 +5,23 @@ Function estimation under shape constraints using Gaussian Process model.
 
 Model: 
 
-     y_i = f(x_i) + u_i,  u_i i.i.d. N(0, sigma), where sigma is set to be unknown.
+     y_i = f_1(x_i) + e_i,  e_i iid N(0, sigma), where sigma is set to be unknown.
+     
+     f_1(x) = f(0) + f'(0)*x + \sum_{j=0}^n f''(u_j)*h_j(x), with pre-defined knots {u_j} and basis functions {h_j}.
+     
+     Let F = [f(0), f'(0), f''(u_0), ..., f''(u_n)] to be updated.
 
 Constraints: 
 
-             (1) f(0) = 1;
+    (1) f(0) = 1;
 
-             (2) f'(x) < 0;
+    (2) f'(x) < 0;
              
-             (3) f''(x) > 0.
+    (3) f''(x) > 0.
              
 Priors: 
 
-    f|x ~ GP(0, tau*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
+    F|x ~ GP(0, tau*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
 
     p(tau) = 1/tau.
    
@@ -37,7 +41,7 @@ Priors:
      uGP:  GP model with no constraint.
      
 
-## Output 
+
 
 
 
