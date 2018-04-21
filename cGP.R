@@ -1,17 +1,20 @@
 #########################################################
-# Input: x: Covariate, a n*1 vector. 
-#        y: Response, a n*1 vector.  
-#        nu: Smoothness parameter in matern kernel. 
-#        l: Length-scale parameter in matern kernel.
-#        niter: Iteration numvers of MC. 
-#        u: Knots of basis functions.
-#        Phi: Basis function evaluation, a n*(N+2) matrix.
-#        trans_mat: tansformation matrix used in the constrained GP methods
 #
-# Output: [f, tau, sigma] 
-#         f: mcmc samples of weights parameter  
-#         tau: mcmc samples of signal-to-noise level in matern kernel 
-#         sigma: mcmc samples of noise level
+# GP model incorporating constraints (1), (2), (3).
+#
+# Input: x:         Covariate, a n*1 vector. 
+#        y:         Response, a n*1 vector.  
+#        nu:        Smoothness parameter in matern kernel. 
+#        l:         Length-scale parameter in matern kernel.
+#        niter:     Iteration numvers of MC. 
+#        u:         Knots of basis functions.
+#        Phi:       Basis function evaluation, a n*(N+2) matrix.
+#        trans_mat: tansformation matrix used in the constrained GP methods.
+#
+# Output: f:        mcmc samples of weights parameter.  
+#         tau:      mcmc samples of signal-to-noise level in matern kernel. 
+#         sigma:    mcmc samples of noise level.
+#
 ##########################################################
 
 
@@ -42,6 +45,8 @@ cGP = function(x, y, nu, l, niter, u, Phi, trans_mat){
   for(i in 2:niter){
     
     if (i%%10 == 0) print(i)
+    
+    # update f #
     Sig = tau[i-1]*t(Phi) %*% Phi + sigma[i-1]*mcov_inv
     Siginv = tau[i-1]*sigma[i-1]*chol2inv(chol(Sig))
     postmean = Siginv%*%t(Phi)%*%y/sigma[i-1]
@@ -59,7 +64,11 @@ cGP = function(x, y, nu, l, niter, u, Phi, trans_mat){
     f_trans = trans_mat %*% mu_cond + mvrandn((L-trans_mat%*%mu_cond), U, tran_Sig, 1)
     f_cond = solve(trans_mat, f_trans)
     f[,i] = as.matrix(c(1,f_cond), ncol = 1)
+    
+    # update sigma #
     sigma[i] = rinvgamma(1, shape = n/2, rate = t(y-Phi%*%f[,i])%*%(y-Phi%*%f[,i])/2)
+    
+    # update tau #
     tau[i] = rinvgamma(1,shape = (N+2)/2, rate = t(f[,i])%*%mcov_inv%*%f[,i]/2)
   }
   
