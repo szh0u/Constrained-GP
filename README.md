@@ -1,5 +1,5 @@
 ## Constrained GP model
-Function estimation under shape constraints using Gaussian Process model. Bayesian method combined with 
+Function estimation under shape constraints using Gaussian Process model.
 
 ## Model & Constraints
 
