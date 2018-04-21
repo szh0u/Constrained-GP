@@ -39,7 +39,7 @@ Priors:
 
 # Output 
 
-![Alt text](Constrained-GP/example.png)
+
 
 
 
