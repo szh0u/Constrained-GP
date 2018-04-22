@@ -43,7 +43,7 @@ Priors:
 
 ## Output
 
-![Szh0u\Constrained-GP](.jpg)
+![Szh0u\Constrained-GP](example.jpg)
 
 
 
