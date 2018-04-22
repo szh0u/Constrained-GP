@@ -45,10 +45,10 @@ Priors:
 
 ![szh0u\Constrained-GP](example.png)
 
-red dashed line -- true function
-blue solid line -- cGP (darker shade 95% CI)
-green solid line -- c0GP (light shade 95% CI)
-purple solid line -- uGP (purple dashed lines 95% CI)
+red dashed line -- true function; 
+blue solid line -- cGP (darker shade 95% CI);
+green solid line -- c0GP (light shade 95% CI);
+purple solid line -- uGP (purple dashed lines 95% CI).
 
 
 
