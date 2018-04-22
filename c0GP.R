@@ -10,7 +10,7 @@
 #        Phi:       Basis function evaluation, a n*(N+2) matrix.
 #        trans_mat: tansformation matrix used in the constrained GP methods.
 #
-# Output: f:        mcmc samples of weights parameter.  
+# Output: f:        mcmc samples of parameter F.   
 #         tau:      mcmc samples of signal-to-noise level in matern kernel. 
 #         sigma:    mcmc samples of noise level.
 #
@@ -38,7 +38,7 @@ c0GP = function(x, y, nu, l, niter, u, Phi, trans_mat){
   f[,1] = t(chol(mcov))%*%rnorm(N+2, 0, 1)*sqrt(tau[1])
   re = list()
   
-  # mcmc runs #
+  #gibbs sampling #
   for(i in 2:niter){
     
     if(i%%10 == 0) print(i)
