@@ -43,7 +43,7 @@ Priors:
 
 ## Output
 
-![szh0u\Constrained-GP](example.png)
+![szh0u\Constrained-GP](simu_plot.png)
 
 red dashed line -- true function; 
 blue solid line -- cGP (darker shade 95% CI);
