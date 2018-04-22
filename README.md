@@ -41,7 +41,9 @@ Priors:
      uGP:  GP model with no constraint.
      
 
+## Output
 
+![Szh0u\Constrained-GP](.jpg)
 
 
 
