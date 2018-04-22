@@ -51,6 +51,7 @@ N = floor(n/4)+1
 # define equal-spaced knots 
 u = seq(0,C, length.out = N)
 dN = C/(N-1)
+# calculate the basis matrix evaluated on x
 Phi_x = matrix(nrow = n, ncol = N)
 for(i in 1:n){
   Phi_x[i,1] = psi_1(x[i])
@@ -59,7 +60,7 @@ for(i in 1:n){
 }
 Phi = cbind(as.matrix(rep(1,n),nrow=n), x, Phi_x)
 
-## transformation coefficient matrices ##
+## transformation coefficient matrices used in parameter f ##
 max_phi = c(dN/2, rep(dN, N-2), dN/2)
 # for cGP, c0GP and uGP
 trans_mat = matrix(nrow = N+1, ncol = N+1) 
@@ -113,10 +114,11 @@ fu_CI = apply(Phi%*%fu[,-c(1:100)],1, quantile, probs = c(0.025,0.975))
 
 
 
-## plot on test grid ##
+## model fit plot on test grid ##
+# test grid 
 xtest = seq(0, max(x), length.out = n)
 ytest = D(xtest)
-
+# new basis matrix evaluated on the test grid
 ntest = length(xtest)
 Phi_test = matrix(nrow = ntest, ncol = N)
 for(i in 1:ntest){
@@ -125,19 +127,22 @@ for(i in 1:ntest){
   for(j in 2:(N-1)){Phi_test[i,j] = psi(xtest[i],j)}
 }
 
+# prediction on the test grid 
 Phi_t = cbind(as.matrix(rep(1,ntest),nrow=ntest), xtest, Phi_test)
+# cGP #
 f_test = apply(Phi_t%*%f[,-c(1:100)],1, median)
 CI_test = apply(Phi_t%*%f[,-c(1:100)],1, quantile, probs = c(0.025,0.975))
-
+# c0GP #
 fn_test = apply(Phi_t%*%fn[,-c(1:100)],1, median)
 CIn_test = apply(Phi_t%*%fn[,-c(1:100)],1, quantile, probs = c(0.025,0.975))
-
+# c1GP #
 fn1_test = apply(Phi_t%*%fn1[,-c(1:100)],1, median)
 CIn1_test = apply(Phi_t%*%fn1[,-c(1:100)],1, quantile, probs = c(0.025,0.975))
-
+# uGP #
 fu_test = apply(Phi_t%*%fu[,-c(1:100)],1, median)
 CIu_test = apply(Phi_t%*%fu[,-c(1:100)],1, quantile, probs = c(0.025,0.975))
 
+# model fit plot on the test grid
 df = data.frame(xtest,f_test)
 G <- ggplot(df, aes(x=xtest, y=f_test), color=variable)+ 
   geom_line(aes(x=xtest, y=f_test), colour="blue")+
