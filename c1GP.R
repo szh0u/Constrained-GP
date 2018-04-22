@@ -11,7 +11,7 @@
 #        Phi:       Basis function evaluation, a n*(N+2) matrix.
 #        trans_mat: tansformation matrix used in the constrained GP methods.
 #
-# Output: f:        mcmc samples of weights parameter.  
+# Output: f:        mcmc samples of parameters F.  
 #         tau:      mcmc samples of signal-to-noise level in matern kernel. 
 #         sigma:    mcmc samples of noise level.
 #
