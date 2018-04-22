@@ -22,7 +22,7 @@ cGP = function(x, y, nu, l, niter, u, Phi, trans_mat){
 
   n=length(x)
   
-  # calculate covariance matrix 
+  # calculate covariance matrix #
   mcov = maternCov(u, l, nu = nu)
   D = eigen(mcov)$values
   U = eigen(mcov)$vectors
@@ -38,11 +38,13 @@ cGP = function(x, y, nu, l, niter, u, Phi, trans_mat){
   f = matrix(nrow = N+2, ncol = niter)
   f[,1] = t(chol(mcov))%*%rnorm(N+2, 0, 1)*sqrt(tau[1])
   
+  # Set the boundaries used in generating truncated normal r.v. #
   L = rep(0, N+1) 
   U = rep(Inf, N+1)
-  re = list()
+ 
   
-  # mcmc # 
+  # gibbs sampling # 
+  re = list()
   for(i in 2:niter){
     
     if (i%%10 == 0) print(i)
