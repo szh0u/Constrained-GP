@@ -31,17 +31,17 @@ c1GP = function(x, y, nu, l, niter, u, Phi, trans_mat){
   mcov_inv = chol2inv(chol(mcov))
   
   # initial values of mcmc samples #
-  f = matrix(nrow = N+2, ncol = niter)
-  f[,1] = t(chol(mcov))%*%rnorm(N+2, 0, 1)*sqrt(tau[1])
   tau = c()
   tau[1] = 0.01
   sigma = c()
   sigma[1] = 0.01
+  f = matrix(nrow = N+2, ncol = niter)
+  f[,1] = t(chol(mcov))%*%rnorm(N+2, 0, 1)*sqrt(tau[1])
   
   # set the boundaries used in generating truncated normal r.v. #
   L = c(-Inf,rep(0, N+1)) 
   U = rep(Inf, N+2)
- 
+  
   
   # gibbs sampling #
   re = list()
