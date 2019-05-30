@@ -1,5 +1,5 @@
 ## Constrained GP model
-Function estimation under shape constraints using Gaussian Process (arXiv preprint: https://arxiv.org/pdf/1808.05977.pdf).
+Function estimation under shape constraints using Gaussian Process (Physical Review C: https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.055202).
 
 ## Model & Constraints
 
@@ -39,6 +39,8 @@ Priors:
      c1GP: GP model with constraints (2), (3) ;
      
      uGP:  GP model with no constraint.
+     
+     
      
 
 ## Output
