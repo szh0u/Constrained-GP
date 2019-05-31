@@ -34,17 +34,17 @@ Priors:
     
 R functions used in the example 
    
-     
+     constrained_GP_simu.R : example run 
 
-     maternCov: generate the matern covariance matrix with arbitrary smoothness parameter nu and length-scale parameter l ; 
+     maternCov.R: generate the matern covariance matrix with arbitrary smoothness parameter nu and length-scale parameter l ; 
 
-     cGP:  GP model with constraints (1), (2), (3) ;
+     cGP.R:  GP model with constraints (1), (2), (3) ;
      
-     c0GP: GP model with constraints (1) ;
+     c0GP.R: GP model with constraints (1) ;
      
-     c1GP: GP model with constraints (2), (3) ;
+     c1GP.R: GP model with constraints (2), (3) ;
      
-     uGP:  GP model with no constraint.
+     uGP.R:  GP model with no constraint.
      
 ## (2) Fast constrained GP (close to the original algorithm only with a small difference in the prior which nevertheless makes the computation significantly more efficient) 
 
@@ -58,13 +58,13 @@ Priors:
 
 R functions used in the example:
     
-    constrGP_example: example run using fast algorithm, only consider cGP and c1GP
+    constrGP_example.R: example run using fast algorithm, only consider cGP and c1GP
     
-    RobustGP: The main function to estimate the proton radius 
+    RobustGP.R: The main function to estimate the proton radius 
      
-    ESS_pro: Algorithm to get initial values for MCMC 
+    ESS_pro.R: Algorithm to get initial values for MCMC 
     
-    ESS_joint: Main algorithm (Gibbs sampling with elipitical slice sampling) 
+    ESS_joint.R: Main algorithm (Gibbs sampling with elipitical slice sampling) 
     
      
 
