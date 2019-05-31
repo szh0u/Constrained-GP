@@ -50,7 +50,7 @@ R functions used in the example
 
 Priors:
     
-    f''|x ~ GP(0, tau^2*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
+    f''|x ~ GP(0, tau^2*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu. 
      
     p(tau^2) = 1/tau^2.
    
