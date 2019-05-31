@@ -105,8 +105,4 @@ sd(as.numeric(as.matrix(Y)))
 
 
 
-
-
-
-
-
+#END
