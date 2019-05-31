@@ -78,4 +78,9 @@ green solid line -- c0GP (light shade 95% CI);
 purple solid line -- uGP (purple dashed lines 95% CI).
 
 
+## Output from the original algorithem (c1GP only)
+
+![szh0u\Constrained-GP](fast_plot.png)
+
+
 
