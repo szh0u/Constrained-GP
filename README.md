@@ -68,7 +68,7 @@ R functions used in the example:
     
      
 
-## Output from the fast algorithem
+## Output from the original algorithem
 
 ![szh0u\Constrained-GP](simu_plot.png)
 
