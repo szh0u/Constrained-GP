@@ -28,7 +28,7 @@ Priors:
     p(sigma^2) = 1/sigma^2.
    
    
-## (1) R functions used in the simulation example (Original algorithem)
+## (1) R functions used in the simulation example (Original algorithem in the paper)
 
      maternCov: generate the matern covariance matrix with arbitrary smoothness parameter nu and length-scale parameter l ; 
 
@@ -40,18 +40,16 @@ Priors:
      
      uGP:  GP model with no constraint.
      
-## (2) Fast constrained GP (with a small tweak in the prior which nevertheless makes the computation significantly more efficient) 
+## (2) Fast constrained GP (close to original algorithm only with a small difference in the prior which nevertheless makes the computation significantly more efficient) 
     
-    constrGP_example: example using fast algorithm, only consider cGP and c1GP
+    constrGP_example: example run using fast algorithm, only consider cGP and c1GP
     
-    RobustGP: The main algorithm to estimate the proton radius 
+    RobustGP: The main function to estimate the proton radius 
      
     ESS_pro: Algorithm to get initial values for MCMC 
     
-    ESS_joint: Gibbs sampling using elipitical slice sampling 
+    ESS_joint: Main algorithm (Gibbs sampling with elipitical slice sampling) 
     
-     
-     
      
 
 ## Output
