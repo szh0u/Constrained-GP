@@ -19,16 +19,22 @@ Constraints:
              
     (3) f''(x) > 0.
              
+
+   
+   
+## (1) Original algorithem in the paper
+
 Priors: 
 
-    F|x ~ GP(0, tau*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
+    f|x ~ GP(0, tau^2*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
 
-    p(tau) = 1/tau.
+    p(tau^2) = 1/tau^2.
    
     p(sigma^2) = 1/sigma^2.
+    
+R functions used in the example 
    
-   
-## (1) R functions used in the simulation example (Original algorithem in the paper)
+     
 
      maternCov: generate the matern covariance matrix with arbitrary smoothness parameter nu and length-scale parameter l ; 
 
@@ -40,7 +46,17 @@ Priors:
      
      uGP:  GP model with no constraint.
      
-## (2) Fast constrained GP (close to original algorithm only with a small difference in the prior which nevertheless makes the computation significantly more efficient) 
+## (2) Fast constrained GP (close to the original algorithm only with a small difference in the prior which nevertheless makes the computation significantly more efficient) 
+
+Priors:
+    
+    f''|x ~ GP(0, tau^2*K(x,x', nu, l)), K matern kernel with length-scale parameter l and smoothness parameter nu.
+     
+    p(tau^2) = 1/tau^2.
+   
+    p(sigma^2) = 1/sigma^2.
+
+R functions used in the example:
     
     constrGP_example: example run using fast algorithm, only consider cGP and c1GP
     
@@ -52,7 +68,7 @@ Priors:
     
      
 
-## Output
+## Output from the fast algorithem
 
 ![szh0u\Constrained-GP](simu_plot.png)
 
